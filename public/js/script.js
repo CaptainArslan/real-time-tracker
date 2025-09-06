@@ -1,5 +1,11 @@
 
-const socket = io();
+// Connect to external Socket.IO server
+const socket = io("https://real-time-tracker-eight-iota.vercel.app", {
+    // Optional configuration options
+    transports: ['websocket', 'polling'],
+    timeout: 20000,
+    forceNew: true
+});
 
 var count = 0;
 if (navigator.geolocation) {
